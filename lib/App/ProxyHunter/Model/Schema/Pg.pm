@@ -48,6 +48,34 @@ table {
 
 1;
 
+=pod
+
+=head1 NAME
+
+App::ProxyHunter::Model::Schema::Pg - PostgreSQL schema for App::ProxyHunter
+
+=head1 SYNOPSIS
+
+	# just edit proxyhunter's config
+	db = {
+		driver: "Pg"
+	}
+
+=head1 SEE ALSO
+
+L<App::ProxyHunter>
+
+=head1 AUTHOR
+
+Oleg G, E<lt>oleg@cpan.orgE<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself
+
+=cut
+
 __DATA__
 CREATE TYPE proxy_type AS ENUM ('HTTPS_PROXY','HTTP_PROXY','CONNECT_PROXY','SOCKS4_PROXY','SOCKS5_PROXY','DEAD_PROXY');
 CREATE TABLE proxy
@@ -77,19 +105,3 @@ CREATE INDEX type_idx
   ON proxy
   USING btree
   (type);
-__END__
-
-=pod
-
-=head1 NAME
-
-App::ProxyHunter::Model::Schema::Pg - PostgreSQL schema for App::ProxyHunter
-
-=head1 SYNOPSIS
-
-	# just edit proxyhunter's config
-	db = {
-		driver: "Pg"
-	}
-
-=cut
