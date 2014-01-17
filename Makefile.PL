@@ -11,6 +11,7 @@ WriteMakefile(
 		DBD::Pg::              => 0.4,
 		DateTime::Format::Pg:: => 0
 	},
+	BUILD_REQUIRES     => { 'Test::More' => 0.88 },
 	CONFIGURE_REQUIRES => {
 		'ExtUtils::MakeMaker' => 6.52,
 	},
