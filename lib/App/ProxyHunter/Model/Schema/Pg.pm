@@ -77,3 +77,19 @@ CREATE INDEX type_idx
   ON proxy
   USING btree
   (type);
+__END__
+
+=pod
+
+=head1 NAME
+
+App::ProxyHunter::Model::Schema::Pg - PostgreSQL schema for App::ProxyHunter
+
+=head1 SYNOPSIS
+
+	# just edit proxyhunter's config
+	db = {
+		driver: "Pg"
+	}
+
+=cut
