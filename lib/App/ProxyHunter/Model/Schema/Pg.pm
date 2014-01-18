@@ -19,6 +19,14 @@ sub sql_datetime_to_perl {
 	DateTime::Format::Pg->parse_datetime($_[0])->set_time_zone(TZ);
 }
 
+sub perl_bool_to_sql {
+	if (ref $_[0]) {
+		return ${$_[0]} ? 't' : 'f';
+	}
+	
+	$_[0] ? 't' : 'f';
+}
+
 table {
 	name 'proxy';
 	pk 'id';
@@ -39,8 +47,9 @@ table {
 		speed
 	);
 	
-	inflate type => \&proxy_name_to_type;
-	deflate type => \&proxy_type_to_name;
+	inflate type        => \&proxy_name_to_type;
+	deflate type        => \&proxy_type_to_name;
+	deflate in_progress => \&perl_bool_to_sql;
 	
 	for (qw/insertdate checkdate speed_checkdate/) {
 		inflate $_ => \&sql_datetime_to_perl;
