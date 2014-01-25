@@ -72,6 +72,10 @@ App::ProxyHunter::Model::Schema::Pg - PostgreSQL schema for App::ProxyHunter
 		driver: "Pg"
 	}
 
+=head1 DESCRIPTION
+
+You need to create database yourself, then use C<proxyhunter --create-schema> to create tables structure
+
 =head1 SEE ALSO
 
 L<App::ProxyHunter>
